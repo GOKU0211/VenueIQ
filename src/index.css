@@ -1,0 +1,63 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0F2C;
+  color: #F0EEFF;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Sora', sans-serif; }
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111838; }
+::-webkit-scrollbar-thumb { background: #4F35D2; border-radius: 3px; }
+
+/* ── Ticker animation ── */
+@keyframes ticker {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+.ticker-track { animation: ticker 55s linear infinite; white-space: nowrap; }
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ── Glow pulse on hero button ── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px #4F35D260, 0 0 50px #4F35D230; }
+  50%       { box-shadow: 0 0 40px #4F35D2A0, 0 0 90px #4F35D250; }
+}
+.btn-glow { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+/* ── Glassmorphism helper ── */
+.glass {
+  background: rgba(20, 27, 60, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(79, 53, 210, 0.18);
+}
+
+/* ── Chat drawer overlay ── */
+.chat-overlay {
+  background: rgba(10, 15, 44, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Route step connector line ── */
+.step-line {
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #4F35D2, transparent);
+}
